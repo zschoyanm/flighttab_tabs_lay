@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.martin.kanadiasuitetabs.MainActivity$PlaceholderFragment">
+
+    <TextView
+        android:text="Altitude Min:"
+        android:textSize="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_marginTop="18dp"
+        android:layout_below="@+id/editmaxalttest"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:text="Speed Min:"
+        android:textSize="25dp"
+        android:layout_below="@+id/editmaxspeed_t"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Speed Max:"
+        android:textSize="25dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="Altitude Max:"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/editmaxalttest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+        android:inputType="number"
+        android:text="3000"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp" />
+
+    <EditText
+        android:id="@+id/editminalt_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editmaxalttest"
+        android:layout_alignStart="@+id/editmaxalttest"
+        android:layout_alignTop="@+id/textView"
+        android:ems="3"
+        android:inputType="number"
+        android:text="1000" />
+
+    <EditText
+        android:id="@+id/editmaxspeed_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editminalt_t"
+        android:layout_alignStart="@+id/editminalt_t"
+        android:layout_alignTop="@+id/textView11"
+        android:ems="3"
+        android:inputType="number"
+        android:text="700" />
+
+    <EditText
+        android:id="@+id/editminspeed_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editmaxspeed_t"
+        android:layout_alignStart="@+id/editmaxspeed_t"
+        android:layout_alignTop="@+id/textView9"
+        android:ems="3"
+        android:inputType="number"
+        android:text="50" />
+
+</RelativeLayout>
