@@ -16,7 +16,7 @@ public class Bas_Sound {
 
 
     public Bas_Sound(){
-        warning = new ToneGenerator(AudioManager.STREAM_MUSIC,(int)(ToneGenerator.MAX_VOLUME * 0.8));
+        warning = new ToneGenerator(AudioManager.STREAM_NOTIFICATION,(int)(ToneGenerator.MAX_VOLUME * 0.8));
     }
 
     public void tone_warning(){
@@ -25,7 +25,8 @@ public class Bas_Sound {
 
         if(BgV.get_altitude() < string_to_int_tsl(Tab2.getDataaltmin(),1) || BgV.get_speed() > string_to_int_tsl(Tab2.getDataaltmax(),2))
         {
-            warning.startTone(ToneGenerator.TONE_DTMF_2);
+            warning.startTone(ToneGenerator.TONE_CDMA_ABBR_ALERT,20);
+
         }
         else
         {
@@ -34,7 +35,7 @@ public class Bas_Sound {
 
         if(BgV.get_speed() < string_to_int_tsl(Tab2.getDataspeedmin(),1) || BgV.get_speed() > string_to_int_tsl(Tab2.getDataspeedmax(),2))
         {
-            warning.startTone(ToneGenerator.TONE_DTMF_2);
+            warning.startTone(ToneGenerator.TONE_CDMA_ABBR_INTERCEPT,20);
         }
         else
         {

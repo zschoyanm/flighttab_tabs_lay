@@ -110,16 +110,26 @@ public class BA_Kanadia {
                         int bytesAvailable = bainstream.available();
                         if(bytesAvailable > 0)
                         {
+                            long startTime = System.nanoTime();
                             byte[] packetBytes = new byte[bytesAvailable];
                             bainstream.read(packetBytes);
+                            long stopTime = System.nanoTime();
+                            long elapsedTime = stopTime - startTime;
+                            long el_mean = mean_value_be(elapsedTime);
+                            System.out.println(el_mean);
+
                             for(int i=0;i<bytesAvailable;i++)
                             {
+
                                 byte b = packetBytes[i];
                                 if(b == delimiter)
                                 {
+
                                     byte[] encodedBytes = new byte[readbufpos];
                                     System.arraycopy(readbuf, 0, encodedBytes, 0, encodedBytes.length);
                                     final String data = new String(encodedBytes, "US-ASCII");
+
+
 
                                     for(int n=0;n < can_id.length;n++)
                                     {
@@ -129,6 +139,7 @@ public class BA_Kanadia {
                                         }
 
                                     }
+
 
                                     readbufpos = 0;
 
@@ -145,8 +156,9 @@ public class BA_Kanadia {
                                     readbuf[readbufpos++] = b;
                                 }
 
-                            }
 
+
+                            }
 
                         }
                     }
@@ -159,6 +171,23 @@ public class BA_Kanadia {
         });
 
         workThr.start();
+    }
+
+    int mean_val_step=1000;
+    static long sum_val;
+    static int la=0;
+    public long[] mean_val = new long[mean_val_step];
+    public long mean_value_be(long val){
+        long mean=0;
+
+        mean_val[la]=val;
+        la++;
+        if(la==mean_val_step){la=0;}
+        for (int x=0;x<mean_val_step;x++){sum_val=sum_val + mean_val[x];}
+        mean=sum_val/mean_val_step;
+        sum_val=0;
+
+        return mean;
     }
 
     public void stop_ba() throws IOException

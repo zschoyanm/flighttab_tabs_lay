@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     Bas_gettextview Bgtv = new Bas_gettextview(this);
 
     android.os.Handler handler = new android.os.Handler();
-
+    int tone_rast=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -100,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
                         BgV.update_data();
 
+
                         Bgtv.get_textview_alt().setText(Float.toString(BgV.get_altitude()));
                         Bgtv.get_textview_speed().setText(Float.toString(BgV.get_speed()));
                         Bgtv.get_textview_poslat().setText(Float.toString(BgV.get_pos_Lat()));
@@ -110,9 +111,17 @@ public class MainActivity extends AppCompatActivity {
                         Bgtv.get_textview_bodyrollr().setText(Float.toString(BgV.get_body_roll_rate()));
                         Bgtv.get_textview_bodyrolla().setText(Float.toString(BgV.get_body_roll_angle()));
 
-                        BC.change_color();
-                        BS.tone_warning();
 
+                        BC.change_color();
+                        if(tone_rast<10) {
+
+                            tone_rast++;
+                        }
+                        else
+                        {
+                            BS.tone_warning();
+                            tone_rast=0;
+                        }
 
 
 
@@ -131,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -186,11 +197,11 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Config Sound Warning";
+                    return "Sound Konfiguration Warnung";
                 case 1:
                     return "Main";
                 case 2:
-                    return "Config Text Warning";
+                    return "Text Konfiguration Warnung";
             }
             return null;
         }
@@ -200,9 +211,9 @@ public class MainActivity extends AppCompatActivity {
         int ret_sta = BA_K_C.start_ba();
         if (ret_sta==1) {
 
-            Toast.makeText(getApplicationContext(), "Turned on",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "BT eingeschaltet",Toast.LENGTH_LONG).show();
         } else {
-            Toast.makeText(getApplicationContext(), "Already on", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "BT eingeschaltet", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -220,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
     public void start (View v) throws Exception{
         try {
             BA_K_C.paired_dev();
-            Toast.makeText(getApplicationContext(), "Start Bluetooth",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Start Bluetooth ",Toast.LENGTH_LONG).show();
         }
         catch (IOException | NullPointerException p){
             Toast.makeText(getApplicationContext(), "Bluetooth nicht gefunden",Toast.LENGTH_LONG).show();

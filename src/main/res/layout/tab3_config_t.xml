@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="39dp"
         android:layout_below="@+id/editmaxalttest"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -23,7 +23,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="39dp"
         android:text="Speed Min:"
         android:textSize="25dp"
         android:layout_below="@+id/editmaxspeed_t"
@@ -34,10 +34,9 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="Speed Max:"
         android:textSize="25dp"
-        android:layout_below="@+id/textView"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -45,11 +44,12 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
         android:text="Altitude Max:"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_alignBaseline="@+id/editmaxalttest"
+        android:layout_alignBottom="@+id/editmaxalttest"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/editmaxalttest"
@@ -58,11 +58,12 @@
         android:ems="3"
         android:inputType="number"
         android:text="3000"
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView4"
         android:layout_toEndOf="@+id/textView4"
-        android:layout_marginLeft="33dp"
-        android:layout_marginStart="33dp" />
+        android:layout_marginTop="67dp" />
 
     <EditText
         android:id="@+id/editminalt_t"
@@ -96,5 +97,17 @@
         android:ems="3"
         android:inputType="number"
         android:text="50" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:textSize="35dp"
+        android:text="Textfarbe Konfiguration Warnung"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editmaxalttest"
+        android:layout_alignStart="@+id/editmaxalttest" />
 
 </RelativeLayout>
